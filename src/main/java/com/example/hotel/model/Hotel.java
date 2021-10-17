@@ -1,6 +1,7 @@
 package com.example.hotel.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "hotels")
@@ -13,6 +14,14 @@ public class Hotel {
     private String hotelName;
     private String hotelAddress;
     private String hotelRating;
+
+    @OneToMany(targetEntity = Employee.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "hotel_id", referencedColumnName = "hotelId")
+    private List<Employee> employees;
+
+    @OneToMany(targetEntity = Room.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "hotel_id", referencedColumnName = "hotelId")
+    private List<Room> rooms;
 
     public int getHotelId() {
         return hotelId;
