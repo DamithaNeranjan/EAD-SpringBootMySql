@@ -21,6 +21,7 @@
             <th class="text-center">Hotel Name</th>
             <th class="text-center">Address</th>
             <th class="text-center">Rating</th>
+            <th class="text-center">Details</th>
             <th class="text-center">Actions</th>
         </tr>
         </thead>
@@ -30,7 +31,11 @@
             <td th:text="${hotel.hotelAddress}"></td>
             <td th:text="${hotel.hotelRating}"></td>
             <td class="text-center">
-                <a th:href="@{/showUpdateHotelForm/{id}(id=${hotel.hotelId})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/showEmployeesOfHotel/{id}(id=${hotel.hotelId})}" class="btn btn-primary">Employees</a>
+                <a th:href="@{/viewRooms/{id}(id=${hotel.hotelId})}" class="btn btn-primary">Rooms</a>
+            </td>
+            <td class="text-center">
+                <a th:href="@{/showUpdateHotelForm/{id}(id=${hotel.hotelId})}" class="btn btn-warning">Update</a>
                 <a th:href="@{/deleteHotel/{id}(id=${hotel.hotelId})}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
