@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Management System</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2">
+    <div class="jumbotron text-center bg-info">
+        <h1 class="text-white">Room List Screen</h1>
+    </div>
+    <a th:href = "@{'/showNewRoomForm/'+${hotelID}}" class="btn btn-success btn-lg btn-block"> Register New Room</a>
+    <br>
+    <table class="table table-striped table-bordered table-responsive-md">
+        <thead class="thead-light">
+        <tr>
+            <th class="text-center">Room Number</th>
+            <th class="text-center">Room Type</th>
+            <th class="text-center">Room Colour</th>
+            <th class="text-center">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="room : ${listRoomsOfHotels}">
+            <td th:text="${room.roomNumber}"></td>
+            <td th:text="${room.roomType}"></td>
+            <td th:text="${room.roomColor}"></td>
+            <td class="text-center">
+                <a th:href="@{/showUpdateRoomForm/{id}(id=${room.roomId})}" class="btn btn-warning">Update</a>
+                <a th:href="@{/deleteRoom/{id}(id=${room.roomId})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/}" class="btn btn-outline-warning"> Home </a>
+</div>
+</body>
+</html>

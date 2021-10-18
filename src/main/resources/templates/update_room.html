@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2">
+    <div class="jumbotron text-center bg-info">
+        <h1 class="text-white">Update Room Info</h1>
+    </div>
+    <hr>
+
+    <form action="#" th:action="@{/saveRoom}" th:object="${room}" method="POST" class="col-lg-6 offset-lg-3">
+        <div class="row justify-content-center">
+
+            <!-- Add hidden form field to handle update -->
+            <!--            <input type="hidden" th:field="*{hotel.getHotelId()}"/>-->
+
+            <input type="hidden" th:value="${room.hotel.hotelId}" th:name="hotel.hotelId">
+
+            <input type="hidden" th:field="*{roomId}"/>
+
+            <input type="number" th:field="*{roomNumber}" class="form-control mb-4 col-8">
+
+            <input type="text" th:field="*{roomType}" class="form-control mb-4 col-8">
+
+            <input type="text" th:field="*{roomColor}" class="form-control mb-4 col-8">
+
+            <button type="submit" class="btn btn-success col-8">Update Room</button>
+        </div>
+    </form>
+    <hr>
+
+    <a th:href="@{/}" class="btn btn-outline-warning"> Home </a>
+</div>
+</body>
+</html>

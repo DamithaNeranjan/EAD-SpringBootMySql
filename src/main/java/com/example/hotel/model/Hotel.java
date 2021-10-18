@@ -35,7 +35,7 @@ public class Hotel {
         this.rooms = rooms;
     }
 
-    @OneToMany(targetEntity = Room.class, cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "hotel")
 //    @JoinColumn(name = "hotel_id", referencedColumnName = "hotelId")
     private List<Room> rooms;
 

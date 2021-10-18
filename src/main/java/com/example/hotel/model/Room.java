@@ -14,7 +14,12 @@ public class Room {
     private String roomType;
     private String roomColor;
 
-
+    @ManyToOne()
+    @JoinColumn(
+            name = "hotelId",
+            referencedColumnName = "hotelId"
+    )
+    private Hotel hotel;
 
     public int getRoomId() {
         return roomId;
