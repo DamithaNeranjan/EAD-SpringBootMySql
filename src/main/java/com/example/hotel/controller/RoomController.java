@@ -41,8 +41,8 @@ public class RoomController {
     @GetMapping("/showUpdateRoomForm/{id}")
     public String showUpdateRoomForm(@PathVariable(value = "id") int id, Model model) {
         Room room = roomService.getRoomById(id);
-//        System.out.println(room);
-//        System.out.println("showUpdateRoomForm");
+        System.out.println(room);
+        System.out.println("showUpdateRoomForm");
         model.addAttribute("room", room);
         return "update_room";
     }
