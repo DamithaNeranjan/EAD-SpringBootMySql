@@ -48,5 +48,13 @@ public class Room {
         this.roomColor = roomColor;
     }
 
-
+    @Override
+    public String toString() {
+        return "Room{" +
+                "roomId=" + roomId +
+                ", roomNumber='" + roomNumber + '\'' +
+                ", roomType='" + roomType + '\'' +
+                ", roomColor='" + roomColor + '\'' +
+                '}';
+    }
 }

@@ -31,12 +31,14 @@ public class EmployeeServiceImplement implements EmployeeService {
         } else {
             throw new RuntimeException(" Employees not found for Hotel id :: " + id);
         }
+//        System.out.println(employeeList);
         return employeeList;
     }
 
     @Override
     public void addEmployee(Employee employee) {
-
+//        System.out.println(employee);
+        this.employeeRepository.save(employee);
     }
 
     @Override

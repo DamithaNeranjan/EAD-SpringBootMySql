@@ -15,8 +15,8 @@ public class Hotel {
     private String hotelAddress;
     private String hotelRating;
 
-    @OneToMany(targetEntity = Employee.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "hotel_id", referencedColumnName = "hotelId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "hotel")
+//    @JoinColumn(name = "hotel_id", referencedColumnName = "hotelId")
     private List<Employee> employees;
 
     public List<Employee> getEmployees() {
@@ -36,7 +36,7 @@ public class Hotel {
     }
 
     @OneToMany(targetEntity = Room.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "hotel_id", referencedColumnName = "hotelId")
+//    @JoinColumn(name = "hotel_id", referencedColumnName = "hotelId")
     private List<Room> rooms;
 
     public int getHotelId() {
@@ -69,5 +69,15 @@ public class Hotel {
 
     public void setHotelRating(String hotelRating) {
         this.hotelRating = hotelRating;
+    }
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "hotelId=" + hotelId +
+                ", hotelName='" + hotelName + '\'' +
+                ", hotelAddress='" + hotelAddress + '\'' +
+                ", hotelRating='" + hotelRating + '\'' +
+                '}';
     }
 }

@@ -14,6 +14,21 @@ public class Employee {
     private int age;
     private String address;
 
+    @ManyToOne()
+    @JoinColumn(
+            name = "hotelId",
+            referencedColumnName = "hotelId"
+    )
+    private Hotel hotel;
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
     public int getEmployeeId() {
         return employeeId;
     }
@@ -54,5 +69,15 @@ public class Employee {
         this.address = address;
     }
 
-
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", address='" + address + '\'' +
+                ", hotel=" + hotel +
+                '}';
+    }
 }
